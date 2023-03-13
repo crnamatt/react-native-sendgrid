@@ -7,7 +7,7 @@ function sendGridEmail(key, to, from, subject, body, type="text/plain"){
     return isSuccess;
 }
 
-function sendEmail(key, to, from, subject, body, type) { 
+function sendEmail(key, to, from, replyto, subject, body, type) { 
     return fetch(CONFIG.SENDGRIDURL, {
         method: 'POST',
         headers: {
@@ -28,6 +28,9 @@ function sendEmail(key, to, from, subject, body, type) {
             ],
             "from": {
               "email": from
+            },
+            "reply_to": {
+              "email": replyto
             },
             "content": [
               {
